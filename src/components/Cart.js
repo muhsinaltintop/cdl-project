@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { useEffect } from 'react';
 import "../styles/cart.css";
+import PriceCalculator from './PriceCalculator';
 
 const Cart = ({cart, setCart, handleChange}) => {
     const [price, setPrice] = useState(0);
@@ -29,23 +30,29 @@ const Cart = ({cart, setCart, handleChange}) => {
             cart?.map((item)=>(
                 <div className="cart_box" key={item.id}>
                     <div className="cart_img">
-                        <img src={item.img} />
+                        <img src={item.img} alt={item.title}/>
                         <p>{item.title}</p>
                     </div>
+                    <div><span>Per/Price: {item.price}</span></div>
                     <div>
-                        <button onClick={()=>handleChange(item, +1)}> + </button>
-                        <button>{item.amount}</button>
                         <button onClick={()=>handleChange(item, -1)}> - </button>
+                        <button>{item.amount}</button>
+                        <button onClick={()=>handleChange(item, +1)}> + </button>
                     </div>
                     <div>
-                        <span>{item.price}</span>
+                        
+                        <span> <PriceCalculator item={item}/>
+                            
+                            
+                            
+                            </span>
                         <button onClick={()=>handleRemove(item.id)} >Remove</button>
                     </div>
                 </div>
             ))}
         <div className='total'>
             <span>Total Price of your Cart</span>
-            <span>Rs - {price}</span>
+            <span>£ {price}</span>
         </div>
     </article>
   )

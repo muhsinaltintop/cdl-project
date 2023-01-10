@@ -3,7 +3,7 @@ section{
     margin: auto;
     margin-top: 5%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
 }
 
@@ -16,8 +16,8 @@ section{
     cursor: pointer;
 }
 .image_box img{
-    width: 150px;
-    height: 200px;
+    max-width: 200px;
+    height: auto;
 }
 .details p:nth-child(1){
     font-weight: bold;
